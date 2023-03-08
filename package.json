@@ -1,0 +1,27 @@
+{
+  "name": "cardstockminis",
+  "version": "1.0.0",
+  "description": "Create card stock miniatures from images for your TTRPG, ready to print out!",
+  "main": "index.js",
+  "scripts": {
+    "test": "selenium"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DrDougPhD/TTRPG-Card-Mini.git"
+  },
+  "keywords": [
+    "dnd",
+    "5e",
+    "cardstock",
+    "mini",
+    "miniature",
+    "miniatures"
+  ],
+  "author": "Doug McGeehan",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "bugs": {
+    "url": "https://github.com/DrDougPhD/TTRPG-Card-Mini/issues"
+  },
+  "homepage": "https://github.com/DrDougPhD/TTRPG-Card-Mini#readme"
+}
