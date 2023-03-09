@@ -1,5 +1,5 @@
 import React from 'react'
 
 export default function PageHeader () {
-  return <header></header>
+  return <header>Header</header>
 }
