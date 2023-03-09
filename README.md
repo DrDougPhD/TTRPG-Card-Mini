@@ -18,6 +18,7 @@ Quickly create PC, NPC, or monster minis for printout and mounting to a card sta
   e.g. "Bugbear 1", "Bugbear 2", ...
 * For duplex printers, align the front and back of the card image so that they can be cut out and immediately mounted
 * For single-page printers, flip the card images so they can be cut out and folded
+* `[Ctrl] + [v]` to paste images in the clipboard buffer
 
 
 ## Supplies
