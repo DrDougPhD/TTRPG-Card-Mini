@@ -1,10 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import '../styles/QueuedImage.css'
+
 const QueuedImage = ({ image }) => {
-  return <>
-    Image
-  </>
+  return (
+    <img alt=''
+      src={ image }>
+    </img>
+  )
 }
 
 QueuedImage.propTypes = {

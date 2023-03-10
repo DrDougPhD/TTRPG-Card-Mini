@@ -1,4 +1,5 @@
 import React from 'react'
+import Stack from 'react-bootstrap/Stack'
 import PropTypes from 'prop-types'
 
 import DropZone from './DropZone'
@@ -12,6 +13,7 @@ const ImageQueue = ({ images, onAddImage }) => {
       className='h-100'
       handleImageDrop={e => handleDrop(e)}
     >
+      <Stack gap={3}>
       {
         images.map((image, i) => (
           <QueuedImage
@@ -20,6 +22,7 @@ const ImageQueue = ({ images, onAddImage }) => {
           />
         ))
       }
+      </Stack>
     </DropZone>
   )
 }

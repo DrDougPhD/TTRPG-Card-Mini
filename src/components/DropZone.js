@@ -16,8 +16,8 @@ const DropZone = ({ children, handleImageDrop }) => {
       console.debug(`Accepted "${file.name}" for queuing`)
 
       const reader = new FileReader()
-      reader.onabort = () => console.log('file reading was aborted')
-      reader.onerror = () => console.log('file reading has failed')
+      reader.onabort = () => console.warn('file reading was aborted')
+      reader.onerror = () => console.error('file reading has failed')
       reader.onload = () => {
         handleImageDrop({ image: reader.result })
         console.debug(`"${file.name}" successfully queued`)
