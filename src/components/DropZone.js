@@ -6,6 +6,8 @@ import {
   useDropzone
 } from 'react-dropzone'
 
+import Image from '../classes/Image'
+
 const DropZone = ({ children, handleImageDrop }) => {
   const onDrop = useCallback((acceptedFiles) => {
     acceptedFiles.forEach((file) => {
@@ -19,7 +21,10 @@ const DropZone = ({ children, handleImageDrop }) => {
       reader.onabort = () => console.warn('file reading was aborted')
       reader.onerror = () => console.error('file reading has failed')
       reader.onload = () => {
-        handleImageDrop({ image: reader.result })
+        handleImageDrop(new Image({
+          data: reader.result,
+          name: file.name
+        }))
         console.debug(`"${file.name}" successfully queued`)
       }
       reader.readAsDataURL(file)
@@ -48,7 +53,7 @@ const DropZone = ({ children, handleImageDrop }) => {
 }
 
 DropZone.propTypes = {
-  children: PropTypes.array,
+  children: PropTypes.element,
   handleImageDrop: PropTypes.func.isRequired
 }
 

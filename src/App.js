@@ -14,7 +14,7 @@ import SettingsPanel from './components/SettingsPanel'
 
 export default function App () {
   const [images, setImages] = useState([])
-  const addImage = ({ image }) => setImages(currentImages => [...currentImages, image])
+  const addImage = (image) => setImages(currentImages => [...currentImages, image])
 
   return (
     <Container fluid className='vh-100 d-flex flex-column'>

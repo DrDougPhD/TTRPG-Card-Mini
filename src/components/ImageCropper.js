@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import Image from '../classes/Image'
+
 const ImageCropper = ({ images, onAddImage }) => {
   return <div>
     ImageCropper
@@ -8,7 +10,7 @@ const ImageCropper = ({ images, onAddImage }) => {
 }
 
 ImageCropper.propTypes = {
-  images: PropTypes.arrayOf(PropTypes.string),
+  images: PropTypes.arrayOf(PropTypes.instanceOf(Image)),
   onAddImage: PropTypes.func.isRequired
 }
 

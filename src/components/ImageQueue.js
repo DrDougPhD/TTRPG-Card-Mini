@@ -5,13 +5,13 @@ import PropTypes from 'prop-types'
 import DropZone from './DropZone'
 import QueuedImage from './QueuedImage'
 
-const ImageQueue = ({ images, onAddImage }) => {
-  const handleDrop = ({ image }) => onAddImage({ image })
+import Image from '../classes/Image'
 
+const ImageQueue = ({ images, onAddImage }) => {
   return (
     <DropZone
       className='h-100'
-      handleImageDrop={e => handleDrop(e)}
+      handleImageDrop={e => onAddImage(e)}
     >
       <Stack gap={3}>
       {
@@ -28,7 +28,7 @@ const ImageQueue = ({ images, onAddImage }) => {
 }
 
 ImageQueue.propTypes = {
-  images: PropTypes.arrayOf(PropTypes.string),
+  images: PropTypes.arrayOf(PropTypes.instanceOf(Image)),
   onAddImage: PropTypes.func.isRequired
 }
 
