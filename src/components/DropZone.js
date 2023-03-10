@@ -6,24 +6,21 @@ import {
   useDropzone
 } from 'react-dropzone'
 
-const DropZone = ({ images, onDrag }) => {
+const DropZone = ({ children, handleImageDrop }) => {
   const onDrop = useCallback((acceptedFiles) => {
     acceptedFiles.forEach((file) => {
       if (!file.type.startsWith('image/')) {
         console.error(`Unable to accept "${file.name}", it's an unsupported file type: "${file.type}"`)
         return
       }
+      console.debug(`Accepted "${file.name}" for queuing`)
 
       const reader = new FileReader()
       reader.onabort = () => console.log('file reading was aborted')
       reader.onerror = () => console.log('file reading has failed')
       reader.onload = () => {
-      // Do whatever you want with the file contents
-        const binaryStr = reader.result
-        console.log('Drop loaded')
-        console.log(binaryStr)
-
-        // TODO: detect if file is an image
+        handleImageDrop({ image: reader.result })
+        console.debug(`"${file.name}" successfully queued`)
       }
       reader.readAsDataURL(file)
     })
@@ -45,14 +42,14 @@ const DropZone = ({ images, onDrag }) => {
           ? <p>Drop the files here ...</p>
           : <p>Drag n drop some files here, or click to select files</p>
       }
-      <>{images}</>
+      <>{children}</>
     </div>
   )
 }
 
 DropZone.propTypes = {
-  images: PropTypes.arrayOf(PropTypes.string),
-  onDrag: PropTypes.func.isRequired
+  children: PropTypes.array,
+  handleImageDrop: PropTypes.func.isRequired
 }
 
 export default DropZone

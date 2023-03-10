@@ -5,15 +5,12 @@ import DropZone from './DropZone'
 import QueuedImage from './QueuedImage'
 
 const ImageQueue = ({ images, onAddImage }) => {
-  const handleDrop = (e) => {
-    console.log('Handling event')
-    console.log(e)
-  }
+  const handleDrop = ({ image }) => onAddImage({ image })
 
   return (
     <DropZone
       className='h-100'
-      onDrop={e => handleDrop(e)}
+      handleImageDrop={e => handleDrop(e)}
     >
       {
         images.map((image, i) => (
