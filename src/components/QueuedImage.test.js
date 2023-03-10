@@ -32,10 +32,10 @@ it('creates an image element', () => {
   })
 
   act(() => createRoot(container).render(
-      <QueuedImage
-        image={image}
-        key={0}
-      />
+    <QueuedImage
+      image={image}
+      key={0}
+    />
   ))
 
   const $img = $(container).find('img')
@@ -43,15 +43,4 @@ it('creates an image element', () => {
   expect(container.querySelector('img')).toBeInTheDocument()
   expect($img.attr('alt')).toBe(expectedFilename)
   expect($img.attr('src')).toBe(imageDataUri)
-
-
-  // act(() => {
-  //   render(<QueuedImage name='Jenny' />, container)
-  // })
-  // expect(container.textContent).toBe('Hello, Jenny!')
-
-  // act(() => {
-  //   render(<QueuedImage name='Margaret' />, container)
-  // })
-  // expect(container.textContent).toBe('Hello, Margaret!')
 })
