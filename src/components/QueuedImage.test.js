@@ -1,11 +1,10 @@
 import React from 'react'
 import {
-  render,
-  unmountComponentAtNode
-} from 'react-dom'
+  createRoot
+} from 'react-dom/client'
 import {
   act
-} from 'react-dom/test-utils'
+} from '@testing-library/react'
 import $ from 'jquery'
 
 import QueuedImage from './QueuedImage'
@@ -20,8 +19,7 @@ beforeEach(() => {
 
 afterEach(() => {
   // cleanup on exiting
-  unmountComponentAtNode(container)
-  container.remove()
+  document.body.removeChild(container)
   container = null
 });
 
@@ -32,20 +30,19 @@ it('renders with or without a name', () => {
     data: imageDataUri,
     name: expectedFilename
   })
-  
-  act(() => {
-    render(
+
+  act(() => createRoot(container).render(
       <QueuedImage
         image={image}
         key={0}
-      />,
-      container
-    )
-  })
+      />
+  ))
 
   const $img = $(container).find('img')
   
   expect($img.attr('alt')).toBe(expectedFilename)
+
+
   // act(() => {
   //   render(<QueuedImage name='Jenny' />, container)
   // })
