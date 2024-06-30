@@ -1,0 +1,23 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Cardstock Minis: Create Single Minis",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/cardstockminis/__init__.py",
+            "args": [
+                "--page-size", "letter",
+                "--use-letters",
+                "--image", "data/inputs/gnolls/Gnoll-fenar-cardstock.webp",
+                "--count", "5",
+                "--output-directory", "./data/output/",
+                "--text", "Gnoll"
+            ],
+            "console": "integratedTerminal"
+        }
+    ]
+}
