@@ -3,6 +3,9 @@
 [![PyPI - Version](https://img.shields.io/pypi/v/cardstock-minis.svg)](https://pypi.org/project/cardstock-minis)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/cardstock-minis.svg)](https://pypi.org/project/cardstock-minis)
 
+Quickly create NPC or monster minis for printout and mounting to a card stand.
+
+
 -----
 
 ## Table of Contents
