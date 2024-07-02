@@ -11,10 +11,8 @@
             "program": "${workspaceFolder}/src/cardstockminis/__init__.py",
             "args": [
                 "--page-size", "letter",
-                "--use-letters",
                 "--image", "data/inputs/gnolls/Gnoll-fenar-cardstock.webp",
                 "--count", "5",
-                "--output-directory", "./data/output/",
                 "--text", "Gnoll"
             ],
             "console": "integratedTerminal"
