@@ -3,12 +3,37 @@ __version__ = "1.0.0-alpha"
 
 import argparse
 import pathlib
+import string
+
+from PIL import Image, ImageFont, ImageDraw
 
 
 def main(args):
     if not args.image.is_file():
         raise FileNotFoundError(f"Could not find input image at {args.image}")
     
+    # Read in image
+    cardstock_image = Image.open(args.image)
+
+    for i in range(args.count):
+        # Append letter to the title
+        letter = string.ascii_uppercase[i]
+        title = f"{args.text} {letter}"
+
+        # Clone image to prepare for writing text
+        cardstock_clone = cardstock_image.copy()
+
+    image_drawer = ImageDraw.Draw(cardstock_image)
+    font = ImageFont.truetype("sans-serif.ttf", 16)
+    # draw.text((x, y),"Sample Text",(r,g,b))
+    image_drawer.text(
+        (0, 0),
+        "Sample Text",
+        (255,255,255),
+        font=font
+    )
+    cardstock_image.save('sample-out.jpg')
+
     output_file = args.output_file or args.image.with_suffix(".pdf")
     output_file.parent.mkdir(exist_ok=True, parents=True)
     
